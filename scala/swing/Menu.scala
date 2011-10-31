@@ -19,14 +19,14 @@ object MenuBar {
 
 /**
  * A menu bar. Each window can contain at most one. Contains a number of menus.
- * 
+ *
  * @see javax.swing.JMenuBar
  */
 class MenuBar extends Component with SequentialContainer.Wrapper {
   override lazy val peer: JMenuBar = new JMenuBar with SuperMixin
-  
+
   def menus: Seq[Menu] = contents.filter(_.isInstanceOf[Menu]).map(_.asInstanceOf[Menu])
-  
+
   // Not implemented by Swing
   //def helpMenu: Menu = UIElement.cachedWrapper(peer.getHelpMenu)
   //def helpMenu_=(m: Menu) { peer.setHelpMenu(m.peer) }
@@ -34,7 +34,7 @@ class MenuBar extends Component with SequentialContainer.Wrapper {
 
 /**
  * A menu item that can be used in a menu.
- * 
+ *
  * @see javax.swing.JMenuItem
  */
 class MenuItem(title0: String) extends AbstractButton {
@@ -47,7 +47,7 @@ class MenuItem(title0: String) extends AbstractButton {
 
 /**
  * A menu. Contains menu items. Being a menu item itself, menus can be nested.
- * 
+ *
  * @see javax.swing.JMenu
  */
 class Menu(title0: String) extends MenuItem(title0) with SequentialContainer.Wrapper { self: Menu =>
@@ -56,7 +56,7 @@ class Menu(title0: String) extends MenuItem(title0) with SequentialContainer.Wra
 
 /**
  * A menu item with a radio button.
- * 
+ *
  * @see javax.swing.JRadioButtonMenuItem
  */
 class RadioMenuItem(title0: String) extends MenuItem(title0) {
@@ -64,7 +64,7 @@ class RadioMenuItem(title0: String) extends MenuItem(title0) {
 }
 /**
  * A menu item with a check box.
- * 
+ *
  * @see javax.swing.JCheckBoxMenuItem
  */
 class CheckMenuItem(title0: String) extends MenuItem(title0) {
